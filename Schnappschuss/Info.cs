@@ -3,7 +3,7 @@
  * $LastChangedBy: thirsch $
  * $LastChangedDate: 2008-07-24 12:51:30 +0200 (Thu, 24 Jul 2008) $
  *
- * $HeadURL: http://subversion.assembla.com/svn/Schnappschuss/trunk/Schnappschuss/Schnappschuss/frmInfo.cs $
+ * $HeadURL: http://subversion.assembla.com/svn/Schnappschuss/trunk/Schnappschuss/Schnappschuss/Info.cs $
  *
  * Author: Thomas A. Hirsch <thirschfamily@gmail.com>
  * Version: $Revision: aae7279ad7dd $
@@ -16,25 +16,25 @@ using System.Windows.Forms;
 
 namespace De.THirsch.Schnappschuss
 {
-    public partial class frmInfo : Form
+    public partial class Info : Form
     {
-        public frmInfo()
+        public Info()
         {
             InitializeComponent();
 
-            this.lblTitle.Text = this.AssemblyTitle;
-            this.lblVersion.Text = String.Format("Version {0}.{1} (r{2})", this.AssemblyVersion.Major, this.AssemblyVersion.Minor, this.AssemblyVersion.Build);
-            this.lblCopyright.Text = this.AssemblyCopyright;
+            lblTitle.Text = AssemblyTitle;
+            lblVersion.Text = String.Format("Version {0}.{1} (r{2})", AssemblyVersion.Major, AssemblyVersion.Minor, AssemblyVersion.Build);
+            lblCopyright.Text = AssemblyCopyright;
         }
 
         public string AssemblyTitle
         {
             get
             {
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
+                var attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
                 if (attributes.Length > 0)
                 {
-                    AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
+                    var titleAttribute = (AssemblyTitleAttribute)attributes[0];
                     if (titleAttribute.Title != "")
                     {
                         return titleAttribute.Title;
@@ -56,12 +56,8 @@ namespace De.THirsch.Schnappschuss
         {
             get
             {
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
-                if (attributes.Length == 0)
-                {
-                    return "";
-                }
-                return ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
+                var attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
+                return attributes.Length == 0 ? "" : ((AssemblyCopyrightAttribute) attributes[0]).Copyright;
             }
         }
     }

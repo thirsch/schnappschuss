@@ -1,6 +1,6 @@
 ﻿namespace De.THirsch.Schnappschuss
 {
-    partial class frmInfo
+    partial class Info
     {
         /// <summary>
         /// Required designer variable.
@@ -37,49 +37,53 @@
             // 
             // lblTitle
             // 
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTitle.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(12, 82);
+            this.lblTitle.Location = new System.Drawing.Point(12, 75);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(290, 23);
+            this.lblTitle.Size = new System.Drawing.Size(238, 23);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Schnappschuss";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblVersion
             // 
+            this.lblVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblVersion.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVersion.Location = new System.Drawing.Point(12, 126);
+            this.lblVersion.Location = new System.Drawing.Point(12, 119);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(290, 22);
+            this.lblVersion.Size = new System.Drawing.Size(238, 22);
             this.lblVersion.TabIndex = 2;
-            this.lblVersion.Text = "Version 1.0";
+            this.lblVersion.Text = "Version 1.1";
             this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCopyright
             // 
+            this.lblCopyright.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCopyright.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCopyright.Location = new System.Drawing.Point(12, 150);
+            this.lblCopyright.Location = new System.Drawing.Point(12, 143);
             this.lblCopyright.Name = "lblCopyright";
-            this.lblCopyright.Size = new System.Drawing.Size(290, 26);
+            this.lblCopyright.Size = new System.Drawing.Size(238, 26);
             this.lblCopyright.TabIndex = 3;
-            this.lblCopyright.Text = "Copyright (c) 2008 Thomas A. Hirsch";
+            this.lblCopyright.Text = "Copyright (c) 2008-2013 Thomas A. Hirsch";
             this.lblCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::De.THirsch.Schnappschuss.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(125, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(99, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(65, 60);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // frmInfo
+            // Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 193);
+            this.ClientSize = new System.Drawing.Size(262, 171);
             this.Controls.Add(this.lblCopyright);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.lblTitle);
@@ -87,7 +91,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmInfo";
+            this.Name = "Info";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Info";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -57,36 +57,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration.cs" />
-    <Compile Include="frmCrosshair.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCrosshair.Designer.cs">
-      <DependentUpon>frmCrosshair.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmCrosshairBackground.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCrosshairBackground.Designer.cs">
       <DependentUpon>frmCrosshairBackground.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmOptions.cs">
+    <Compile Include="Options.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOptions.Designer.cs">
-      <DependentUpon>frmOptions.cs</DependentUpon>
+    <Compile Include="Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInfo.cs">
+    <Compile Include="Info.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInfo.Designer.cs">
-      <DependentUpon>frmInfo.cs</DependentUpon>
+    <Compile Include="Info.Designer.cs">
+      <DependentUpon>Info.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRegion.cs">
       <SubType>Form</SubType>
@@ -94,26 +87,22 @@
     <Compile Include="frmRegion.Designer.cs">
       <DependentUpon>frmRegion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmCrosshair.resx">
-      <DependentUpon>frmCrosshair.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmCrosshairBackground.resx">
       <DependentUpon>frmCrosshairBackground.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOptions.resx">
-      <DependentUpon>frmOptions.cs</DependentUpon>
+    <EmbeddedResource Include="Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInfo.resx">
-      <DependentUpon>frmInfo.cs</DependentUpon>
+    <EmbeddedResource Include="Info.resx">
+      <DependentUpon>Info.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegion.resx">

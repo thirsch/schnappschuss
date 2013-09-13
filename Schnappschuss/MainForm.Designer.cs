@@ -1,6 +1,6 @@
 ﻿namespace De.THirsch.Schnappschuss
 {
-    partial class frmMain
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.cmsAppMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.bildschirmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +55,8 @@
             this.hilfeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.einstellungenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.cmsAppMenu.SuspendLayout();
             this.toolStripScreenshot.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -70,8 +72,8 @@
             this.notifyIcon.ContextMenuStrip = this.cmsAppMenu;
             this.notifyIcon.Text = "Schnappschuss";
             this.notifyIcon.Visible = true;
-            this.notifyIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseMove);
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
+            this.notifyIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseMove);
             // 
             // cmsAppMenu
             // 
@@ -79,47 +81,49 @@
             this.bildschirmToolStripMenuItem,
             this.ausschnittToolStripMenuItem,
             this.aktivesFensterToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.einstellungenToolStripMenuItem1,
             this.toolStripMenuItem1,
             this.beendenToolStripMenuItem});
             this.cmsAppMenu.Name = "cmsAppMenu";
-            this.cmsAppMenu.Size = new System.Drawing.Size(225, 120);
+            this.cmsAppMenu.Size = new System.Drawing.Size(222, 148);
             // 
             // bildschirmToolStripMenuItem
             // 
             this.bildschirmToolStripMenuItem.Name = "bildschirmToolStripMenuItem";
-            this.bildschirmToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift)
-                        | System.Windows.Forms.Keys.D3)));
-            this.bildschirmToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.bildschirmToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.D3)));
+            this.bildschirmToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.bildschirmToolStripMenuItem.Text = "Bildschirm";
             this.bildschirmToolStripMenuItem.Click += new System.EventHandler(this.bildschirmToolStripMenuItem_Click);
             // 
             // ausschnittToolStripMenuItem
             // 
             this.ausschnittToolStripMenuItem.Name = "ausschnittToolStripMenuItem";
-            this.ausschnittToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift)
-                        | System.Windows.Forms.Keys.D4)));
-            this.ausschnittToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.ausschnittToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.D4)));
+            this.ausschnittToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.ausschnittToolStripMenuItem.Text = "Ausschnitt";
             this.ausschnittToolStripMenuItem.Click += new System.EventHandler(this.ausschnittToolStripMenuItem_Click);
             // 
             // aktivesFensterToolStripMenuItem
             // 
             this.aktivesFensterToolStripMenuItem.Name = "aktivesFensterToolStripMenuItem";
-            this.aktivesFensterToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift)
-                        | System.Windows.Forms.Keys.D5)));
-            this.aktivesFensterToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.aktivesFensterToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.D5)));
+            this.aktivesFensterToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.aktivesFensterToolStripMenuItem.Text = "Aktives Fenster";
             this.aktivesFensterToolStripMenuItem.Click += new System.EventHandler(this.aktivesFensterToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(218, 6);
             // 
             // beendenToolStripMenuItem
             // 
             this.beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
-            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.beendenToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.beendenToolStripMenuItem.Text = "Beenden";
             this.beendenToolStripMenuItem.Click += new System.EventHandler(this.beendenToolStripMenuItem_Click);
             // 
@@ -228,44 +232,44 @@
             this.tsmiSep2,
             this.beendenToolStripMenuItem1});
             this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
-            this.dateiToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.dateiToolStripMenuItem.Text = "Datei";
             // 
             // sichernToolStripMenuItem
             // 
             this.sichernToolStripMenuItem.Name = "sichernToolStripMenuItem";
-            this.sichernToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.sichernToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.sichernToolStripMenuItem.Text = "Sichern";
             this.sichernToolStripMenuItem.Click += new System.EventHandler(this.sichernToolStripMenuItem_Click);
             // 
             // neuToolStripMenuItem
             // 
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.neuToolStripMenuItem.Text = "Schliessen";
             this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
             // 
             // tsmiSep1
             // 
             this.tsmiSep1.Name = "tsmiSep1";
-            this.tsmiSep1.Size = new System.Drawing.Size(145, 6);
+            this.tsmiSep1.Size = new System.Drawing.Size(142, 6);
             // 
             // einstellungenToolStripMenuItem
             // 
             this.einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
-            this.einstellungenToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.einstellungenToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.einstellungenToolStripMenuItem.Text = "Einstellungen";
             this.einstellungenToolStripMenuItem.Click += new System.EventHandler(this.einstellungenToolStripMenuItem_Click);
             // 
             // tsmiSep2
             // 
             this.tsmiSep2.Name = "tsmiSep2";
-            this.tsmiSep2.Size = new System.Drawing.Size(145, 6);
+            this.tsmiSep2.Size = new System.Drawing.Size(142, 6);
             // 
             // beendenToolStripMenuItem1
             // 
             this.beendenToolStripMenuItem1.Name = "beendenToolStripMenuItem1";
-            this.beendenToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
+            this.beendenToolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
             this.beendenToolStripMenuItem1.Text = "Beenden";
             this.beendenToolStripMenuItem1.Click += new System.EventHandler(this.beendenToolStripMenuItem1_Click);
             // 
@@ -280,16 +284,28 @@
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
             this.infoToolStripMenuItem.Text = "Info";
             this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
             // saveFileDialog
             // 
             this.saveFileDialog.Filter = "Portable Network Graphics (*.png)|*.png|Jpeg (*.jpeg;*.jpg)|*.jpg;*.jpeg|GIF Imag" +
-                "e (*.gif)|*.gif|Windows Bitmap (*.bmp)|*.bmp";
+    "e (*.gif)|*.gif|Windows Bitmap (*.bmp)|*.bmp";
             // 
-            // frmMain
+            // einstellungenToolStripMenuItem1
+            // 
+            this.einstellungenToolStripMenuItem1.Name = "einstellungenToolStripMenuItem1";
+            this.einstellungenToolStripMenuItem1.Size = new System.Drawing.Size(221, 22);
+            this.einstellungenToolStripMenuItem1.Text = "Einstellungen";
+            this.einstellungenToolStripMenuItem1.Click += new System.EventHandler(this.einstellungenToolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(218, 6);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -301,10 +317,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "frmMain";
+            this.Name = "MainForm";
             this.Text = "Schnappschuss";
-            this.Load += new System.EventHandler(this.frmShooter_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmShooter_FormClosing);
+            this.Load += new System.EventHandler(this.frmShooter_Load);
             this.cmsAppMenu.ResumeLayout(false);
             this.toolStripScreenshot.ResumeLayout(false);
             this.toolStripScreenshot.PerformLayout();
@@ -349,6 +365,8 @@
         private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator tsmiSep1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem einstellungenToolStripMenuItem1;
     }
 }
 

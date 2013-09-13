@@ -1,7 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Reflection;
-using System.Threading;
 using System.Windows.Forms;
 using System.ComponentModel;
 
@@ -9,7 +8,7 @@ namespace gma.System.Windows
 {
     /// <summary>
     /// This class allows you to tap keyboard and mouse and / or to detect their activity even when an 
-    /// application runes in background or does not have any user interface at all. This class raises 
+    /// application runs in background or does not have any user interface at all. This class raises 
     /// common .NET events with KeyEventArgs and MouseEventArgs so you can easily retrive any information you need.
     /// </summary>
     public class UserActivityHook

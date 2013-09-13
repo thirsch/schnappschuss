@@ -1,6 +1,6 @@
 ﻿namespace De.THirsch.Schnappschuss
 {
-    partial class frmOptions
+    partial class Options
     {
         /// <summary>
         /// Required designer variable.
@@ -283,7 +283,7 @@
             this.tmrSamples.Interval = 2000;
             this.tmrSamples.Tick += new System.EventHandler(this.tmrSamples_Tick);
             // 
-            // frmOptions
+            // Options
             // 
             this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
@@ -300,7 +300,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmOptions";
+            this.Name = "Options";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Einstellungen";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmOptions_FormClosing);

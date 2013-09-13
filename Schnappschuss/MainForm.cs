@@ -3,7 +3,7 @@
  * $LastChangedBy: thirsch $
  * $LastChangedDate: 2008-07-28 12:48:50 +0200 (Mon, 28 Jul 2008) $
  *
- * $HeadURL: http://subversion.assembla.com/svn/Schnappschuss/trunk/Schnappschuss/Schnappschuss/frmMain.cs $
+ * $HeadURL: http://subversion.assembla.com/svn/Schnappschuss/trunk/Schnappschuss/Schnappschuss/MainForm.cs $
  *
  * Author: Thomas A. Hirsch <thirschfamily@gmail.com>
  * Version: $Revision: aae7279ad7dd $
@@ -14,7 +14,6 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using De.THirsch.Schnappschuss.Properties;
-using System.ComponentModel;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -22,22 +21,22 @@ using gma.System.Windows;
 
 namespace De.THirsch.Schnappschuss
 {
-    public partial class frmMain : Form
+    public partial class MainForm : Form
     {
-        private ScreenshotClass sc = new ScreenshotClass();
-        private UserActivityHook actHook = new UserActivityHook();
+        private readonly ScreenshotClass _sc = new ScreenshotClass();
+        private readonly UserActivityHook _actHook = new UserActivityHook();
 
-        private bool x = false;
-        private bool hidden = false;
+        private bool _x;
+        private bool _hidden;
 
-        public frmMain()
+        public MainForm()
         {
             InitializeComponent();
-            this.notifyIcon.Icon = this.Icon;
+            notifyIcon.Icon = Icon;
 
-            this.actHook.KeyDown += new KeyEventHandler(actHook_KeyDown);
-            this.actHook.KeyUp += new KeyEventHandler(actHook_KeyUp);
-            this.actHook.OnMouseActivity += new MouseEventHandler(actHook_OnMouseActivity);
+            _actHook.KeyDown += actHook_KeyDown;
+            _actHook.KeyUp += actHook_KeyUp;
+            _actHook.OnMouseActivity += actHook_OnMouseActivity;
 
             //frmCrosshairBackground f = new frmCrosshairBackground();
             //f.ShowDialog();
@@ -79,7 +78,7 @@ namespace De.THirsch.Schnappschuss
                     if (isAlt && isShift)
                     {
                         // create a full view screenshot
-                        Size size = this.sc.DetermineScreenBounds();
+                        Size size = this._sc.DetermineScreenBounds();
                         this.createShot(new Point(0, 0), size);
                         e.Handled = true;
                     }
@@ -99,8 +98,8 @@ namespace De.THirsch.Schnappschuss
                 case Keys.D5:
                     if (isAlt && isShift)
                     {
-                        this.sc.SetForegroundWindow();
-                        this.processScreenshot(this.sc.CreateBitmapOfForegroundWindow());
+                        this._sc.SetForegroundWindow();
+                        this.processScreenshot(this._sc.CreateBitmapOfForegroundWindow());
                         e.Handled = true;
                     }
                     break;
@@ -109,34 +108,33 @@ namespace De.THirsch.Schnappschuss
 
         void fr_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Form fr = (Form)sender;
-            if (fr.DialogResult == DialogResult.OK)
-            {
-                this.createShot(fr.Location, fr.Size);
-            }
+            var fr = (Form)sender;
+            if (fr.DialogResult != DialogResult.OK) return;
+            fr.Hide();
+            createShot(fr.Location, fr.Size);
         }
 
         private void bildschirmToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Size size = this.sc.DetermineScreenBounds();
-            this.createShot(new Point(0, 0), size);
+            var size = _sc.DetermineScreenBounds();
+            createShot(new Point(0, 0), size);
         }
 
         private void aktivesFensterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             Application.DoEvents();
 
             // take screenshot
-            Bitmap screenShot = this.sc.CreateBitmapOfForegroundWindow();
-            x = false;
-            this.processScreenshot(screenShot);
+            var screenShot = _sc.CreateBitmapOfForegroundWindow();
+            _x = false;
+            processScreenshot(screenShot);
 
             // wenn das Fenster vorher offen war, müssen
             // wir es aber auch wieder öffnen!
-            if (!this.hidden)
+            if (!_hidden)
             {
-                this.Show();
+                Show();
             }
         }
 
@@ -144,13 +142,13 @@ namespace De.THirsch.Schnappschuss
         {
             if (e.X < 0 || e.Y < 0)
             {
-                x = false;
+                _x = false;
             }
-            if (x)
+            if (_x)
                 return;
 
-            this.sc.SetForegroundWindow();
-            x = true;
+            this._sc.SetForegroundWindow();
+            _x = true;
         }
 
         private void ausschnittToolStripMenuItem_Click(object sender, EventArgs e)
@@ -170,13 +168,13 @@ namespace De.THirsch.Schnappschuss
             this.Hide();
             Application.DoEvents();
 
-            Bitmap screenShot = this.sc.CreateBitmapOfRegion(location, size);
+            Bitmap screenShot = this._sc.CreateBitmapOfRegion(location, size);
 
             this.processScreenshot(screenShot);
 
             // wenn das Fenster vorher offen war, müssen
             // wir es aber auch wieder öffnen!
-            if (!this.hidden)
+            if (!this._hidden)
             {
                 this.Show();
             }
@@ -291,7 +289,7 @@ namespace De.THirsch.Schnappschuss
 
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmInfo info = new frmInfo();
+            Info info = new Info();
             info.ShowDialog();
         }
 
@@ -301,7 +299,7 @@ namespace De.THirsch.Schnappschuss
             {
                 e.Cancel = true;
                 this.Hide();
-                this.hidden = true;
+                this._hidden = true;
             }
             else
             {
@@ -332,8 +330,13 @@ namespace De.THirsch.Schnappschuss
 
         private void einstellungenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmOptions options = new frmOptions();
-            options.ShowDialog();
+            showOptions(FormStartPosition.CenterParent);
+        }
+
+        private void showOptions(FormStartPosition formStartPosition)
+        {
+            var options = new Options { StartPosition = formStartPosition };
+            options.ShowDialog(this);
         }
 
         private void frmShooter_Load(object sender, EventArgs e)
@@ -365,7 +368,7 @@ namespace De.THirsch.Schnappschuss
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             this.Show();
-            this.hidden = false;
+            this._hidden = false;
         }
 
         private void sichernToolStripMenuItem_Click(object sender, EventArgs e)
@@ -385,6 +388,11 @@ namespace De.THirsch.Schnappschuss
                 this.pictureBox.Image.Dispose();
                 this.pictureBox.Image = null;
             }
+        }
+
+        private void einstellungenToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            showOptions(FormStartPosition.CenterScreen);
         }
     }
 }

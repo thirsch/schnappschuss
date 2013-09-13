@@ -11,8 +11,6 @@ namespace De.THirsch.Schnappschuss
 {
     public partial class frmCrosshairBackground : Form
     {
-        private frmCrosshair crosshair = new frmCrosshair();
-
         public frmCrosshairBackground()
         {
             InitializeComponent();
